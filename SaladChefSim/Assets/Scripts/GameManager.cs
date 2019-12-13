@@ -5,16 +5,15 @@ using SaladChefGame;
 
 public class GameManager : MonoBehaviour
 {
-    public List<Ingredient> _Ingredients;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public IngredientData _Ingredients;
 
-    // Update is called once per frame
-    void Update()
+    public static GameManager pInstance { get; private set; }
+
+    private void Awake()
     {
-        
+        if (pInstance == null)
+            pInstance = this;
+        else
+            Destroy(this.gameObject);
     }
 }

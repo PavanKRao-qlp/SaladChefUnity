@@ -6,9 +6,15 @@ namespace SaladChefGame
 {
     public class ChoppingBoard : MonoBehaviour,IInteractableUtilities
     {
-        public Queue<Ingredient> _ChoppedIngredients;
 
+        public Transform _InstanceTransform;
+        public Queue<Ingredient> pChoppedIngredients { get; set; }
         public Ingredient pCurrentIngredient { get; set; }
+
+        public void Start()
+        {
+            pChoppedIngredients = new Queue<Ingredient>();
+        }
 
         public void OnDeselect()
         {
@@ -29,13 +35,14 @@ namespace SaladChefGame
                 {
                     if (!ingredient.HasStatus(Ingredient.IngredientStatus.CHOPPED))
                     {
+                        ingredient.PlaceObject(_InstanceTransform);
                         StartCoroutine("Chop", ingredient);
                     }
                 }
             }
             else
             {
-                player.pIngredientsInHand = _ChoppedIngredients;
+                player.pIngredientsInHand = pChoppedIngredients;
             }
             return null;
         }
@@ -43,8 +50,9 @@ namespace SaladChefGame
         private IEnumerator Chop(Ingredient choppedIngredient)
         {
             yield return new WaitForSeconds(choppedIngredient._ChoppingDelay);
+
             choppedIngredient.SetStatus(Ingredient.IngredientStatus.CHOPPED);
-            _ChoppedIngredients.Enqueue(choppedIngredient);
+            pChoppedIngredients.Enqueue(choppedIngredient);
         }
     }
 }

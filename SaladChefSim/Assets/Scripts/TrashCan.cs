@@ -20,6 +20,7 @@ namespace SaladChefGame
         {
             if (player.pIngredientsInHand != null)
             {
+                player.ClearHand();
                 player.pIngredientsInHand.Clear();
             }
             return null;

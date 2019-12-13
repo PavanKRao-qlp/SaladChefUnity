@@ -12,28 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Ingredients
   m_EditorClassIdentifier: Assembly-CSharp:SaladChefGame:IngredientData
+  _IngredientTemplate: {fileID: 2842341007923338030, guid: 64e6011925e32f64694c5adf0f7470eb,
+    type: 3}
   _Ingredients:
   - _Name: A
-    _InstanceObject: {fileID: 2842341007923338030, guid: 64e6011925e32f64694c5adf0f7470eb,
+    _IngredientIcon: {fileID: 3205366556754861960, guid: ed6871ea441b6d24588535c5f633effc,
       type: 3}
-    _ChoppingDelay: 3
+    _CutIngredientIcon: {fileID: 1542341216846488844, guid: 84dac796bfa83684a93534d3756cfa92,
+      type: 3}
+    _ChoppingDelay: 2
   - _Name: B
-    _InstanceObject: {fileID: 2842341007923338030, guid: 64e6011925e32f64694c5adf0f7470eb,
+    _IngredientIcon: {fileID: 8538218016255033410, guid: ed6871ea441b6d24588535c5f633effc,
       type: 3}
-    _ChoppingDelay: 3
+    _CutIngredientIcon: {fileID: 4548562631146149808, guid: 84dac796bfa83684a93534d3756cfa92,
+      type: 3}
+    _ChoppingDelay: 2
   - _Name: C
-    _InstanceObject: {fileID: 2842341007923338030, guid: 64e6011925e32f64694c5adf0f7470eb,
+    _IngredientIcon: {fileID: -8548064364540074637, guid: ed6871ea441b6d24588535c5f633effc,
+      type: 3}
+    _CutIngredientIcon: {fileID: -2712597798906281939, guid: 84dac796bfa83684a93534d3756cfa92,
       type: 3}
     _ChoppingDelay: 3
   - _Name: D
-    _InstanceObject: {fileID: 2842341007923338030, guid: 64e6011925e32f64694c5adf0f7470eb,
+    _IngredientIcon: {fileID: 1285051336768534001, guid: ed6871ea441b6d24588535c5f633effc,
+      type: 3}
+    _CutIngredientIcon: {fileID: -5658147275761265485, guid: 84dac796bfa83684a93534d3756cfa92,
       type: 3}
     _ChoppingDelay: 3
   - _Name: E
-    _InstanceObject: {fileID: 2842341007923338030, guid: 64e6011925e32f64694c5adf0f7470eb,
+    _IngredientIcon: {fileID: -5819705023426999582, guid: ed6871ea441b6d24588535c5f633effc,
       type: 3}
-    _ChoppingDelay: 3
+    _CutIngredientIcon: {fileID: -5819705023426999582, guid: ed6871ea441b6d24588535c5f633effc,
+      type: 3}
+    _ChoppingDelay: 4
   - _Name: F
-    _InstanceObject: {fileID: 2842341007923338030, guid: 64e6011925e32f64694c5adf0f7470eb,
+    _IngredientIcon: {fileID: -5813460917862172405, guid: ed6871ea441b6d24588535c5f633effc,
       type: 3}
-    _ChoppingDelay: 3
+    _CutIngredientIcon: {fileID: -5813460917862172405, guid: ed6871ea441b6d24588535c5f633effc,
+      type: 3}
+    _ChoppingDelay: 4

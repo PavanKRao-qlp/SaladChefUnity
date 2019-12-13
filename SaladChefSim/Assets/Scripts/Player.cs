@@ -33,12 +33,22 @@ namespace SaladChefGame
                 mMovementController.Move(movementVector);
             }
 
-            if(mCurrentUtility != null && Input.GetKey(KeyCode.E))
+            if(mCurrentUtility != null && Input.GetKeyDown(KeyCode.E))
             {
                 mCurrentUtility.Use(this);
             }
+        }
 
+        public void HoldIngredient(Ingredient ingredient)
+        {
+            GameObject ingredientObj = ingredient.CreateObject(_PlateTransform);
+            ingredientObj.transform.position += Vector3.up * 1 * (pIngredientsInHand.Count - 1);
+        }
 
+        public void ClearHand()
+        {
+            foreach (Ingredient ingredient in pIngredientsInHand)
+                ingredient.DestroyObject();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -47,7 +57,7 @@ namespace SaladChefGame
             if (utility != null)
             {
                 mCurrentUtility = utility;
-                mCurrentUtility.OnSelect(this);
+               // mCurrentUtility.OnSelect(this);
             }
         }
 
@@ -56,7 +66,7 @@ namespace SaladChefGame
             IInteractableUtilities utility = other.GetComponent<IInteractableUtilities>();
             if (utility != null && mCurrentUtility != null)
             {
-                mCurrentUtility.OnDeselect();
+                //mCurrentUtility.OnDeselect();
                 mCurrentUtility = null;
             }
         }

@@ -149,25 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87cb7e2d67429c41ab7d5360970c091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Ingredients:
-  - _Name: A
-    _InstanceObject: {fileID: 0}
-    _ChoppingDelay: 3
-  - _Name: B
-    _InstanceObject: {fileID: 0}
-    _ChoppingDelay: 3
-  - _Name: C
-    _InstanceObject: {fileID: 0}
-    _ChoppingDelay: 4
-  - _Name: D
-    _InstanceObject: {fileID: 0}
-    _ChoppingDelay: 4
-  - _Name: E
-    _InstanceObject: {fileID: 0}
-    _ChoppingDelay: 5
-  - _Name: F
-    _InstanceObject: {fileID: 0}
-    _ChoppingDelay: 5
+  _Ingredients: {fileID: 11400000, guid: 35ec504bd3ce7f04f9bbe982b7e142d8, type: 2}
 --- !u!4 &117962002
 Transform:
   m_ObjectHideFlags: 0
@@ -561,16 +543,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 777142693214185968, guid: 0bfe898d39893fc4a8c04729e4a04dbe,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0c14775e58eaefe46896e350b87da2fa, type: 2}
     - target: {fileID: 4299970340768190019, guid: 0bfe898d39893fc4a8c04729e4a04dbe,
         type: 3}
       propertyPath: _IngredientID
       value: A
       objectReference: {fileID: 0}
+    - target: {fileID: 777142693214185968, guid: 0bfe898d39893fc4a8c04729e4a04dbe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c14775e58eaefe46896e350b87da2fa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bfe898d39893fc4a8c04729e4a04dbe, type: 3}
 --- !u!1001 &604960494
@@ -650,16 +632,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 777142693214185968, guid: 0bfe898d39893fc4a8c04729e4a04dbe,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0c14775e58eaefe46896e350b87da2fa, type: 2}
     - target: {fileID: 4299970340768190019, guid: 0bfe898d39893fc4a8c04729e4a04dbe,
         type: 3}
       propertyPath: _IngredientID
       value: F
       objectReference: {fileID: 0}
+    - target: {fileID: 777142693214185968, guid: 0bfe898d39893fc4a8c04729e4a04dbe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c14775e58eaefe46896e350b87da2fa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bfe898d39893fc4a8c04729e4a04dbe, type: 3}
 --- !u!1001 &1024600429

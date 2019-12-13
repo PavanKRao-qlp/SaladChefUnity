@@ -16,20 +16,46 @@ namespace SaladChefGame
         }
 
         public string _Name;
-        public GameObject _InstanceObject;
+        public Sprite _IngredientIcon;
+        public Sprite _CutIngredientIcon;
 
         public float _ChoppingDelay = 0.0f;
 
         public IngredientStatus pStatus { get; set; }
+        public GameObject pObject {get; private set; }
+
+        public GameObject CreateObject(Transform proxyTransform)
+        {
+            pStatus = IngredientStatus.NONE;
+            pObject = GameObject.Instantiate(GameManager.pInstance._Ingredients._IngredientTemplate, proxyTransform);
+            pObject.GetComponentInChildren<SpriteRenderer>().sprite = _IngredientIcon;
+            return pObject;
+        }
+
+        public void PlaceObject(Transform proxyTransfor)
+        {
+            if (pObject != null)
+            {
+                pObject.transform.SetParent(proxyTransfor);
+                pObject.transform.localPosition = Vector3.zero;
+            }
+        }
+
+        public void DestroyObject()
+        {
+            GameObject.Destroy(pObject);
+        }
 
         public  void SetStatus(IngredientStatus status)
         {
             pStatus = pStatus | status;
+            GetSprite();
         }
 
         public void RemoveStatus(IngredientStatus status)
         {
             pStatus = pStatus & (~status);
+            GetSprite();
         }
 
         public bool HasStatus(IngredientStatus status)
@@ -37,27 +63,26 @@ namespace SaladChefGame
             return (pStatus & status) == status;
         }
 
+        private void GetSprite()
+        {
+            if(pObject != null && pObject.GetComponentInChildren<SpriteRenderer>() != null)
+            {
+                if(HasStatus(IngredientStatus.CHOPPED))
+                pObject.GetComponentInChildren<SpriteRenderer>().sprite = _CutIngredientIcon;
+            }
+        }
+
     }
 
     [CreateAssetMenu(menuName = "IngredientData")]
     public class IngredientData : ScriptableObject
     {
+        public GameObject _IngredientTemplate;
         public List<Ingredient> _Ingredients = new List<Ingredient>();
 
         public Ingredient GetIngredient(string name)
         {
             return _Ingredients.Find(x => x._Name == name);
         }
-
-        //public List<Ingredient> GetRandomSalad(int count)
-        //{
-        //     List<Ingredient> randomSalad = new Salad();
-        //    List<int> randoms = Utilities.GetNonRepetitiveRandom(count, 0, m_Vegetables.Count - 1);
-
-        //    for (int i = 0; i < count; i++)
-        //        randomSalad.AddIngredients(m_Vegetables[randoms[i]]);
-
-        //    return randomSalad;
-        //}
     }
 }

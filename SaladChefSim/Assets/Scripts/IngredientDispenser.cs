@@ -8,14 +8,16 @@ namespace SaladChefGame
     {
         public string _IngredientID;
         public Transform _InstanceTransform;
-        public IngredientData _IngredientData;
 
-        public Ingredient pIngredient { get; set; }    
+        public Ingredient pIngredient { get; set; }
 
         public void Start()
         {
-            pIngredient = _IngredientData.GetIngredient(_IngredientID);
-            Instantiate(pIngredient._InstanceObject, _InstanceTransform);
+            if (GameManager.pInstance != null)
+            {
+                pIngredient = GameManager.pInstance._Ingredients.GetIngredient(_IngredientID);
+                pIngredient.CreateObject(_InstanceTransform);
+            }
         }
 
         public void OnDeselect()
@@ -33,6 +35,7 @@ namespace SaladChefGame
             if (player.pIngredientsInHand.Count < player._CarryLimit)
             {
                 player.pIngredientsInHand.Enqueue(pIngredient);
+                player.HoldIngredient(pIngredient);
                 return pIngredient;
             }
             else
